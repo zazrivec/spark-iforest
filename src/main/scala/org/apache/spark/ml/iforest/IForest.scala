@@ -572,7 +572,7 @@ class IForest (
       else maxFeatures.toInt
 
     if (subFeatures == numFeatures) {
-      (data.toArray.map(vector => vector.asInstanceOf[DenseVector].values), Array.range(0, numFeatures))
+      (data.toArray.map(vector => vector.toDense.values), Array.range(0, numFeatures))
     } else {
       // feature index for sampling features
       val featureIdx = random.shuffle(0 to numFeatures - 1).take(subFeatures)
